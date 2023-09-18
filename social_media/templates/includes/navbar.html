@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'index' %}">Social Media</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'index' %}">Anasayfa &nbsp; <i class="fa-solid fa-house"></i> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">Keşfet &nbsp; <i class="fa-solid fa-magnifying-glass"></i> </a>
+        </li>
+        
+      </ul>
+
+      <ul class="navbar-buttons">
+        <li class="nav-item">
+            <a class="nav-link-button" href="" title="Gönderi Ekle"><i class="fa-solid fa-plus"></i>
+                <span class="button-hover-text">Gönderi Ekle</span>
+            </a>
+        </li>
+      </ul>
+
+
+      <ul class="navbar-nav ml-auto">
+        
+        {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link">{{request.user}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user:logout' %}">Çıkış Yap &nbsp; <i class="fa-solid fa-right-from-bracket"></i></a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user:login' %}">Giriş Yap &nbsp; <i class="fa-solid fa-user"></i> </a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user:register' %}">Kayıt Ol &nbsp; <i class="fa-solid fa-user-plus"></i> </a>
+          </li>
+        {% endif %}
+          
+        
+        
+      </ul>
+
+      
+    </div>
+  </nav>

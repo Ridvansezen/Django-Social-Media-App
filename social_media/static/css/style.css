@@ -1,0 +1,137 @@
+.navbar {
+    background-color: #be6123 !important;
+}
+
+::selection {
+    background-color: #be6123;
+    color: #fff;
+}
+
+.navbar-brand {
+    color: #fff !important;
+}
+
+.nav-link {
+    color: #fff !important;
+    transition: 0.3s;
+    border-radius: 40px;
+    margin-left: 10px;
+}
+
+.nav-link:hover {
+    background-color:#ffffff!important ;
+    border-radius: 40px;
+    color: #be6123 !important;
+}
+
+.home-text {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.row {
+    align-items: center !important;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-items {
+    align-items: center !important;
+    justify-content: center;
+    text-align: center;
+}
+
+.register-form-button {
+    background-color: #fff !important;
+    color: #be6123 !important;
+    border: #be6123 1px solid !important;
+    text-align: center;
+    border: none;
+    padding: 8px;
+    width: 205px;
+    cursor: pointer;
+    border-radius: 40px;
+    margin-top: 50px;
+    transition: 0.3s;
+}
+
+.register-form-button:hover {
+    background-color: #be6123 !important;
+    color: #fff !important;
+}
+
+.login-form-button {
+    background-color: #fff !important;
+    color: #2359be !important;
+    border: #2359be 1px solid !important;
+    text-align: center;
+    border: none;
+    padding: 8px;
+    width: 205px;
+    cursor: pointer;
+    border-radius: 40px;
+    margin-top: 50px;
+    transition: 0.3s;
+}
+
+.login-form-button:hover {
+    background-color: #2359be !important;
+    color: #fff !important;
+}
+
+.form {
+    
+    width: 300px !important;
+}
+
+.form-control {
+    border-radius: 50px !important;
+    border: #be6123 1px solid;
+}
+
+.form-input {
+    border: #2359be 1px solid;
+}
+
+.navbar-buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+}
+
+.nav-link-button {
+    background-color:#ffffff!important ;
+    border-radius: 15px !important;
+    text-align: center !important;
+    padding: 8px;
+    width: 40px;
+    color: #be6123 !important;
+    display: inline-block;
+    position: relative;
+    padding-right: 0; /* Başlangıçta simgeyi gizler */
+    transition: padding-right 0.3s ease;
+}
+
+.nav-link-button .button-hover-text {
+    position: absolute;
+    margin-top: -25px !important;
+    text-align: center;
+    left: 100%; /* Başlangıçta metni sağda gizler */ 
+    color: #be6123; /* Metin rengi */ /* Kenar boşluğu */
+    white-space: nowrap; /* Metni satıra sığdırır */
+    transition: left 0.3s ease; /* Geçiş efekti */
+}
+
+.nav-link-button:hover {
+    padding-right: 120px; /* Hover durumunda simgeyi gösterir */
+}
+
+.nav-link-button:hover .button-hover-text {
+    left: 30px; /* Hover durumunda metni gösterir */
+}
+
+.fa-solid {
+    margin-right: 9px;
+}
