@@ -93,45 +93,19 @@
     border: #2359be 1px solid;
 }
 
-.navbar-buttons {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    list-style: none;
-}
-
-.nav-link-button {
-    background-color:#ffffff!important ;
-    border-radius: 15px !important;
-    text-align: center !important;
-    padding: 8px;
-    width: 40px;
-    color: #be6123 !important;
-    display: inline-block;
-    position: relative;
-    padding-right: 0; /* Başlangıçta simgeyi gizler */
-    transition: padding-right 0.3s ease;
-}
-
-.nav-link-button .button-hover-text {
-    position: absolute;
-    margin-top: -25px !important;
-    text-align: center;
-    left: 100%; /* Başlangıçta metni sağda gizler */ 
-    color: #be6123; /* Metin rengi */ /* Kenar boşluğu */
-    white-space: nowrap; /* Metni satıra sığdırır */
-    transition: left 0.3s ease; /* Geçiş efekti */
-}
-
-.nav-link-button:hover {
-    padding-right: 120px; /* Hover durumunda simgeyi gösterir */
-}
-
-.nav-link-button:hover .button-hover-text {
-    left: 30px; /* Hover durumunda metni gösterir */
-}
-
 .fa-solid {
     margin-right: 9px;
 }
+
+.post-list .text-align {
+    text-align: left !important;
+}
+
+.post-detail {
+    font-size: 20px !important;
+    color: #3b3b3b;
+    text-decoration: none !important;
+    margin-bottom: 80px !important;
+}
+
+
