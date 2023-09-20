@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+    <form method="post">
+        {% csrf_token %}
+        <p>Hesabınızı silmek istediğinize emin misiniz?</p>
+        <div class="alert alert-danger">Bu işlem geri alınamaz!</div>
+        <button class="delete-profile-confirmation" type="submit">Hesabımı Sil</button>
+        <a class="cancel-button" href="{% url 'user:settings' %}">İptal</a>
+    </form>
+{% endblock body %}
+    
+        

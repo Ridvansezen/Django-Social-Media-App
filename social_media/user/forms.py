@@ -26,3 +26,16 @@ class RegisterForm(forms.Form):
         }
 
         return values
+    
+class ChangeUsernameForm(forms.Form):
+    new_username = forms.CharField(label="Yeni Kullanıcı adı", max_length=50)
+
+    def clean_new_username(self):
+        new_username = self.cleaned_data['new_username']
+        # Yeni kullanıcı adının kullanılabilir olduğunu kontrol edin
+        if User.objects.filter(username=new_username).exists():
+            raise forms.ValidationError('Bu kullanıcı adı zaten kullanılıyor.')
+        return new_username
+    
+class ChangePasswordForm(forms.Form):
+    new_password = forms.CharField(label="Yeni Parola", max_length=100, widget=forms.PasswordInput)

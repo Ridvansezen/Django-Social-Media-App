@@ -254,3 +254,134 @@
     text-decoration: none;
     background-color: #d14242;
 }
+
+.invalid-feedback {
+    font-size: 18px !important;
+}
+
+.change-username-button-form {
+    background-color: #fff !important;
+    color: #be6123 !important;
+    border: #be6123 1px solid !important;
+    text-align: center;
+    border: none;
+    padding: 8px;
+    width: 205px;
+    cursor: pointer;
+    border-radius: 40px;
+    margin-top: 50px;
+    transition: 0.3s;
+}
+
+.change-username-button-form:hover {
+    background-color: #be6123 !important;
+    color: #fff !important;
+}
+
+.change-username-button {
+    background-color: #fff !important;
+    color: #be6123 !important;
+    border: #be6123 1px solid !important;
+    text-align: center;
+    border: none;
+    padding: 8px;
+    width: 205px;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: 0.3s;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px !important;
+    display: block;
+}
+
+.change-username-button:hover {
+    background-color: #be6123 !important;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.change-password-button {
+    background-color: #fff !important;
+    color: #be6123 !important;
+    border: #be6123 1px solid !important;
+    text-align: center;
+    border: none;
+    padding: 8px;
+    width: 205px;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: 0.3s;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px !important;
+    display: block;
+}
+
+.change-password-button:hover {
+    background-color: #be6123 !important;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.delete-profile-confirmation {
+    background-color: #d10b0b !important;
+    color: #fff !important;
+    text-align: center;
+    border: none;
+    padding: 8px;
+    width: 205px;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: 0.3s;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px !important;
+    display: block;
+}
+
+.delete-profile-confirmation:hover {
+    background-color: #ee2525 !important;
+}
+
+.delete-profile-button {
+    background-color: #d10b0b !important;
+    color: #fff !important;
+    text-align: center;
+    border: none;
+    padding: 8px;
+    width: 205px;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: 0.3s;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px !important;
+    display: block;
+}
+
+.delete-profile-button:hover {
+    text-decoration: none;
+    background-color: #ee2525 !important;
+}
+
+.cancel-button {
+    background-color: #0b61d1 !important;
+    color: #fff !important;
+    text-align: center;
+    border: none;
+    padding: 8px;
+    width: 205px;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: 0.3s;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px !important;
+    display: block;
+}
+
+.cancel-button:hover {
+    text-decoration: none;
+    background-color: #3880df !important;
+}

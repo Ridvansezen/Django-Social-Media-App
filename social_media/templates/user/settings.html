@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h2 class="header-text">Ayarlar</h2>
+    <hr>
+    <br>
+    <h4 class="header-text">Kullanıcı adı değiştir</h4>
+    <a class="change-username-button" href="{% url 'user:change_username' %}">Kullanıcı adı değiştir</a>
+    <hr>
+    <br>
+    <br>
+    <h4 class="header-text">Parola değiştir</h4>
+    <a class="change-password-button" href="{% url 'user:change_password' %}">Parola değiştir</a>
+    <hr>
+    <br>
+    <br>
+    <h4 class="header-text">Hesabı Sil</h4>
+    <a class="delete-profile-button" href="{% url 'user:delete_profile' %}">Hesabı Sil</a>
+{% endblock body %}
+    

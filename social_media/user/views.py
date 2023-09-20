@@ -5,6 +5,10 @@ from django.contrib import messages
 from django.contrib.auth import login,logout,authenticate
 from django.db import IntegrityError
 from post.models import Post
+from user.forms import ChangeUsernameForm
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
 
 def loginUser (request):
     form = LoginForm(request.POST or None)
@@ -83,3 +87,43 @@ def profileAuthor(request, author_id):
     }
 
     return render(request, "user/profileAuthor.html", context)
+
+def userSettings(request):
+    return render(request, "user/settings.html")
+
+def change_username(request):
+    if request.method == "POST":
+        form = ChangeUsernameForm(request.POST)
+        if form.is_valid():
+            new_username = form.cleaned_data["new_username"]
+            request.user.username = new_username
+            request.user.save()
+            messages.success(request, "Kullanıcı adı başarıyla değiştirildi")
+            return redirect("user:settings")
+        
+    else:
+        form = ChangeUsernameForm()
+
+    return render(request, "user/change_username.html", {"form":form})
+
+def change_password(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, "Parola başarıyla değiştirildi")
+            return redirect("user:settings")
+    else:
+        form = PasswordChangeForm(request.user)
+
+    return render(request, "user/change_password.html", {"form": form})
+
+@login_required
+def delete_profile(request):
+    if request.method == "POST":
+        request.user.delete()
+        messages.success(request, "Hesabınız başarıyla silindi")
+        return redirect("index")
+    else:
+        return render(request, "user/delete_profile_confirmation.html")
