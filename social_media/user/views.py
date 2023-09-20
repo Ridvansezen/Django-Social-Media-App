@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import login,logout,authenticate
 from django.db import IntegrityError
+from post.models import Post
 
 def loginUser (request):
     form = LoginForm(request.POST or None)
@@ -56,3 +57,16 @@ def logoutUser (request):
     logout(request)
     messages.success(request, "Başarıyla çıkış yaptınız")
     return redirect("index")
+
+def profileUser(request):
+    user = request.user
+    registiration_date = user.date_joined
+    posts = Post.objects.filter(author = request.user)
+
+    context = {
+        'user':user,
+        'registiration_date' :registiration_date,
+        'posts':posts
+    }
+
+    return render(request, "user/Userprofile.html", context)

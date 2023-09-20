@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+{% block body %}
+    <h3 class="header-text">Profilim</h3>
+    <hr>
+    <br>
+    <img class="profile-photo" src="{% static 'img/placeholder.png' %}" alt="Profile Photo">
+    <br>
+    <p class="profile-text" >Profil Resmi</p>
+    <br>
+    <hr>
+    <p class="profile-text">Kullanıcı adı : &nbsp; {{user.username}} </p>
+    <p class="profile-text">Kayıt olma tarihi : &nbsp; {{registiration_date}} </p>
+    <hr>
+    <br>
+    <p class="total-post">Toplam {{ posts|length }} gönderi</p>
+    <a class="add-post-button" href="{% url 'post:addPost' %}">Gönderi oluştur</a>
+    <br><br>
+    
+    <h4 class="header-text">Gönderiler</h4>
+    <hr>
+    {% if posts %}
+    {% for post in posts %}
+    <br>
+    <div class="row">
+        <div class="col-lg-8 text-align">
+            <p><div class="text-muted fst-italic mb-2"> {{ post.author.username }} </div></p>
+            <p><div class="post-detail">{{ post.content }} </div></p>
+            <p><div class="text-muted fst-italic mb-2"> {{post.created_date}} </div></p>
+            <a class="post-update-button" href="{% url 'post:updatePost' post.id %}">Gönderiyi düzenle &nbsp; <i class="fa-solid fa-pen"></i> </a>
+            <a class="post-delete-button" href="{% url 'post:deletePost' post.id %}" onclick="return confirm('Bu gönderiyi silmek istediğinize emin misiniz?')">Gönderiyi sil &nbsp; <i class="fa-solid fa-trash"></i> </a>
+
+            <hr>
+        </div>
+    </div>
+    
+        
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-danger">Henüz gönderi yok.</div>
+    {% endif %}
+
+
+{% endblock body %}
+
+<script>
+    function confirmDelete(PostId) {
+        if (confirm("Gönderiyi silmek istediğinize emin misiniz?")) {
+            
+            window.location.href = '/posts/delete/' + PostId;
+        } else {
+            
+            return false;
+        }
+    }
+</script>
+    

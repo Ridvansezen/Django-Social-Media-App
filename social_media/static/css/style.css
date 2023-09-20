@@ -149,3 +149,108 @@
     color: #fff;
     background-color: #474747;
 }
+
+.header-text {
+    text-align: center;
+}
+
+.profile-text {
+    text-align: center;
+}
+
+.profile-photo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    border-radius: 40px;
+}
+
+.profile-photo-navbar {
+    border-radius: 40px;
+    height: 40px;
+}
+
+.add-post-button {
+    color: #fff;
+    background: #be6123 ;
+    padding: 8px;
+    text-decoration: none;
+    display: inline-block;
+    width: 200px !important;
+    text-align: center;
+    border-radius: 30px;
+    transition: 0.3s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add-post-button:hover {
+    color: #fff;
+    text-decoration: none;
+    background: #cf7f4c ;
+}
+
+.total-post {
+    text-align: center;
+}
+
+.post-form {
+    width: 500px;
+}
+
+.add-post-button-form {
+    background-color: #fff !important;
+    color: #be6123 !important;
+    border: #be6123 1px solid !important;
+    text-align: center;
+    border: none;
+    padding: 8px;
+    width: 205px;
+    cursor: pointer;
+    border-radius: 40px;
+    margin-top: 50px;
+    transition: 0.3s;
+}
+
+.add-post-button-form:hover {
+    background-color: #be6123 !important;
+    color: #fff !important;
+}
+
+.post-update-button {
+    color: #fff;
+    background-color: #2359be;
+    text-align: center;
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 20px;
+    width: 180px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.post-update-button:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #3f71ce;
+}
+
+.post-delete-button {
+    color: #fff;
+    background-color: #be2323;
+    text-align: center;
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 20px;
+    width: 150px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.post-delete-button:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #d14242;
+}

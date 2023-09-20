@@ -16,20 +16,18 @@
       </ul>
 
           
-          
-
-
+      {% load static %}
 
       <ul class="navbar-nav ml-auto">
         
         {% if request.user.is_authenticated %}
 
-
+            <img class="profile-photo-navbar" src="{% static 'img/placeholder.png' %}" alt="Profile Photo">
             <div class="nav-item dropdown">
               <a class="nav-link dropdown-toggle username-navbar" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{request.user}}</a>  
               
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="">Profil &nbsp; <i class="fa-regular fa-user"></i></a>
+                  <a class="dropdown-item" href="{% url 'user:profile' %}">Profil &nbsp; <i class="fa-regular fa-user"></i></a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="">Ayarlar &nbsp; <i class="fa-solid fa-gear"></i></a>
                   <div class="dropdown-divider"></div>

@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% load crispy_forms_tags %}
+    <div class="row">
+        <div class="form-item">
+            <h2 class="header-text">Gönderi Oluştur</h2>
+            <hr>
+            <br>
+            <form method="post" class="post-form">
+                {% csrf_token %}
+                {{form|crispy}}
+                <button type="submit" class="add-post-button-form">Gönderi oluştur</button>
+            </form>
+        </div>
+    </div>
+{% endblock body %}
+    
