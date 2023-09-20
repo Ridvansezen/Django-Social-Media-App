@@ -12,7 +12,13 @@
             <div class="row">
                 
                     <div class="col-lg-8 text-align">
-                        <p><div class="text-muted fst-italic mb-2">Yazar : {{post.author.username}} </div></p>
+                        <p><div class="text-muted fst-italic mb-2">Yazar : 
+                            {% if post.author.username == request.user.username %}
+                                <a href="{% url 'user:profileUser' %}"> {{ post.author.username }}</a>
+                            {% else %}
+                                <a href="{% url 'user:profileAuthor' author_id=post.author.id %}"> {{ post.author.username }}</a>
+                            {% endif %}
+                        </div></p>
                         <br>
                         <a class="post-detail" href=""><p class="post-content" href="">{{post.content}} </p></a>
                         <br>
@@ -32,4 +38,3 @@
     {% endif %}
         
 {% endblock body %}
-    

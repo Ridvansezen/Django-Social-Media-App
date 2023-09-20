@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from user.forms import RegisterForm,LoginForm
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -41,7 +41,7 @@ def register (request):
             newUser.save()
             login(request, newUser)
             messages.success(request, "Başarıyla kayıt oldunuz")
-            return redirect("myapp:index")
+            return redirect("index")
         
         except IntegrityError:
             messages.info(request, "Bu kullanıcı adı alınmış")
@@ -70,3 +70,16 @@ def profileUser(request):
     }
 
     return render(request, "user/Userprofile.html", context)
+
+def profileAuthor(request, author_id):
+    author = get_object_or_404(User, id=author_id)
+    registiration_date = author.date_joined
+    posts = Post.objects.filter(author= author_id)
+
+    context = {
+        'author':author,
+        'registiration_date' :registiration_date,
+        'posts':posts
+    }
+
+    return render(request, "user/profileAuthor.html", context)
