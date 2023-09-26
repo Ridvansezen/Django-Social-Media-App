@@ -18,6 +18,10 @@
                             {% else %}
                                 <a href="{% url 'user:profileAuthor' author_id=post.author.id %}"> {{ post.author.username }}</a>
                             {% endif %}
+                            <br><br><br>
+                            {% if post.post_image %}
+                                <img class="img-fluid rounded detail-img" src="{{post.post_image.url}}" alt="">
+                            {% endif %}
                         </div></p>
                         <br>
                         <a class="post-detail" href=""><p class="post-content" href="">{{post.content}} </p></a>

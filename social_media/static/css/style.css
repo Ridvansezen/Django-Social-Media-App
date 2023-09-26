@@ -163,7 +163,7 @@
     margin-left: auto;
     margin-right: auto;
     height: 100px;
-    border-radius: 40px;
+    border-radius: 60px;
 }
 
 .profile-photo-navbar {
@@ -384,4 +384,10 @@
 .cancel-button:hover {
     text-decoration: none;
     background-color: #3880df !important;
+}
+
+.dashboard-list {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
 }

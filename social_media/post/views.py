@@ -10,8 +10,25 @@ def posts(request):
     posts = Post.objects.all()
     return render(request, "posts/posts.html", {"posts":posts})
 
+def dashboard(request):
+    if not request.user.is_authenticated:
+        messages.info(request, "Bu sayfaya erişmek için giriş yapmalısınız.")
+        return redirect("user:login")
+    
+    posts = Post.objects.filter(author = request.user)
+    context = {
+        "posts":posts,
+    }
+
+    return render(request, "posts/dashboard.html", context)
+
 def addPost(request):
-    form = PostForm(request.POST or None)
+    if not request.user.is_authenticated:
+        messages.info(request, "Gönderi ekleyebilmek için giriş yapmalısınız.")
+        return redirect("user:login")
+    
+    form = PostForm(request.POST or None, request.FILES or None)
+    
     if form.is_valid():
         post = form.save(commit=False)
         post.author = request.user
@@ -19,9 +36,13 @@ def addPost(request):
         messages.success(request, "Gönderi başarıyla oluşturuldu")
         return redirect("user:profileUser")
 
+
     return render(request, "posts/addPost.html", {"form":form})
 
 def updatePost(request, id):
+    if not request.user.is_authenticated:
+        messages.info(request, "Gönderi düzenleyebilmek için giriş yapmalısınız.")
+        return redirect("user:login")
     post = get_object_or_404(Post, id = id)
     form = PostForm(request.POST or None, instance=post)
     if form.is_valid():
@@ -34,6 +55,9 @@ def updatePost(request, id):
     return render(request, "posts/updatePost.html", {"form":form})
 
 def deletePost(request, id):
+    if not request.user.is_authenticated:
+        messages.info(request, "Gönderi silebilmek için giriş yapmalısınız.")
+        return redirect("user:login")
     post = get_object_or_404(Post, id = id)
     post.delete()
     messages.success(request, "Gönderi başarıyla silindi")

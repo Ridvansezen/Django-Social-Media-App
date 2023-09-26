@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+<p class="total-post">Toplam {{ posts|length }} gönderi</p>
+<a class="add-post-button" href="{% url 'post:addPost' %}">Gönderi oluştur</a>
+<br><br>
+
+<h4 class="header-text">Gönderilerim</h4>
+<hr>
+{% if posts %}
+<div class="dashboard-list">
+{% for post in posts %}
+<br>
+<div class="row">
+    <div class="col-xl-8 text-align">
+        <p><div class="text-muted fst-italic mb-2"> {{ post.author.username }} </div></p>  
+        <br>
+        {% if post.post_image %}
+            <img class="img-fluid rounded detail-img" src="{{post.post_image.url}}" alt="">
+        {% endif %}
+        <br><br>
+        <p><div class="post-detail">{{ post.content }} </div></p>
+        <p><div class="text-muted fst-italic mb-2"> Oluşturulma tarihi : {{post.created_date}} </div></p>
+        <a class="post-update-button" href="{% url 'post:updatePost' post.id %}">Gönderiyi düzenle &nbsp; <i class="fa-solid fa-pen"></i> </a>
+        <a class="post-delete-button" href="{% url 'post:deletePost' post.id %}" onclick="return confirm('Bu gönderiyi silmek istediğinize emin misiniz?')">Gönderiyi sil &nbsp; <i class="fa-solid fa-trash"></i> </a>
+        <br><br>
+        <hr>
+        <br>
+    </div>
+    {% endfor %}
+</div> 
+</div>
+
+       
+{% else %}
+    <div class="alert alert-danger">Henüz gönderi yok.</div>
+{% endif %}
+    
+{% endblock body %}
+    

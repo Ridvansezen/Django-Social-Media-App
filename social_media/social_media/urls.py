@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from post import views
+import social_media.settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-   path('', views.index, name="index"),
+    path('', views.index, name="index"),
     path('user/', include("user.urls")),
     path('posts/', include("post.urls")),
 ]
+urlpatterns += static(social_media.settings.MEDIA_URL, document_root=social_media.settings.MEDIA_ROOT)

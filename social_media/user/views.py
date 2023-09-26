@@ -62,7 +62,11 @@ def logoutUser (request):
     messages.success(request, "Başarıyla çıkış yaptınız")
     return redirect("index")
 
+
 def profileUser(request):
+    if not request.user.is_authenticated:
+        messages.info(request, "Profilinizi görüntüleyebilmek için giriş yapmalısınız.")
+        return redirect("user:login")
     user = request.user
     registiration_date = user.date_joined
     posts = Post.objects.filter(author = request.user)
@@ -89,9 +93,14 @@ def profileAuthor(request, author_id):
     return render(request, "user/profileAuthor.html", context)
 
 def userSettings(request):
+    if not request.user.is_authenticated:
+        messages.info(request, "Ayarlar sayfasını görüntüleyebilmek için giriş yapmalısınız.")
+        return redirect("user:login")
     return render(request, "user/settings.html")
 
 def change_username(request):
+    if not request.user.is_authenticated:
+        return redirect("user:login")
     if request.method == "POST":
         form = ChangeUsernameForm(request.POST)
         if form.is_valid():
@@ -107,6 +116,8 @@ def change_username(request):
     return render(request, "user/change_username.html", {"form":form})
 
 def change_password(request):
+    if not request.user.is_authenticated:
+        return redirect("user:login")
     if request.method == "POST":
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -119,8 +130,10 @@ def change_password(request):
 
     return render(request, "user/change_password.html", {"form": form})
 
-@login_required
+
 def delete_profile(request):
+    if not request.user.is_authenticated:
+        return redirect("user:login")
     if request.method == "POST":
         request.user.delete()
         messages.success(request, "Hesabınız başarıyla silindi")
