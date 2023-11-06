@@ -9,6 +9,13 @@ from user.forms import ChangeUsernameForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from .models import UserProfile
+from django.http import HttpResponse
+
+from rest_framework import viewsets
+from .models import User
+from .serializers import UserModelSerializer
+
 
 def loginUser (request):
     form = LoginForm(request.POST or None)
@@ -140,3 +147,21 @@ def delete_profile(request):
         return redirect("index")
     else:
         return render(request, "user/delete_profile_confirmation.html")
+    
+
+def follower(request):
+    followers_count = UserProfile.objects.get(user_id = 1)
+    followers_count = {
+        "followers_count":followers_count,
+    }
+    return render(request, "user/profileAuthor.html", followers_count)
+
+
+# Rest Framework ------------------------------------
+
+
+class UserModelViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserModelSerializer
+
+

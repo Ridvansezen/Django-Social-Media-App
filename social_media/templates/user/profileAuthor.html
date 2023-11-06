@@ -8,8 +8,17 @@
     <br>
     <img class="profile-photo" src="{% static 'img/placeholder.png' %}" alt="Profile Photo">
     <br>
-    <p class="profile-text" >Profil Resmi</p>
     <br>
+    
+    <div class="follower">
+        <div class="text-container">
+            <p class="follower-text">Takipçi: {{ followers_count }}</p>
+            <p class="follow-text">Takip: </p>
+        </div>
+        <a class="follow-button" href="">Takip et</a>        
+    </div>
+    <br>
+
     <hr>
     <p class="profile-text">Kullanıcı adı : &nbsp; {{author.username}} </p>
     <p class="profile-text">Kayıt olma tarihi : &nbsp; {{registiration_date}} </p>

@@ -3,6 +3,10 @@ from post.models import Post
 from post.forms import PostForm
 from django.contrib import messages
 
+from rest_framework import viewsets
+from .models import Post
+from .serializers import ModelSerializer
+
 def index(request):
     return render(request, "index.html")
 
@@ -62,3 +66,12 @@ def deletePost(request, id):
     post.delete()
     messages.success(request, "Gönderi başarıyla silindi")
     return redirect("user:profileUser")
+
+
+# Rest Framework ------------------------------------
+
+
+class ModelViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = ModelSerializer
+

@@ -1,7 +1,13 @@
-from django.urls import path
+from django.urls import path, include
 from user import views
 
+from rest_framework.routers import DefaultRouter
+from .views import UserModelViewSet
+
 app_name = "user"
+
+router = DefaultRouter()
+router.register(r'user_profiles', UserModelViewSet)
 
 urlpatterns = [
     path('login/', views.loginUser, name="login"),

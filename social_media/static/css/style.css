@@ -391,3 +391,46 @@
     text-align: center;
     flex-direction: column;
 }
+
+.follower {
+    text-align: center;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.follower-text {
+    text-align: center;
+}
+.follow-text {
+    text-align: center;
+    margin-left: 50px;
+}
+
+.follow-button {
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    background-color: #be6123;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    width: 130px; 
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.4s;
+}
+
+.follow-button:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #db8348;
+}
+
+
+

@@ -20,10 +20,20 @@ from post import views
 import social_media.settings
 from django.conf.urls.static import static
 
+from rest_framework.routers import DefaultRouter
+from post.views import ModelViewSet
+from user.views import UserModelViewSet
+
+router = DefaultRouter()
+router.register(r'posts', ModelViewSet)
+router.register(r'user_profiles', UserModelViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('user/', include("user.urls")),
     path('posts/', include("post.urls")),
+    path('api/', include(router.urls), name='api'),
+    
 ]
 urlpatterns += static(social_media.settings.MEDIA_URL, document_root=social_media.settings.MEDIA_ROOT)

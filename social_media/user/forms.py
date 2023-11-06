@@ -39,3 +39,4 @@ class ChangeUsernameForm(forms.Form):
     
 class ChangePasswordForm(forms.Form):
     new_password = forms.CharField(label="Yeni Parola", max_length=100, widget=forms.PasswordInput)
+

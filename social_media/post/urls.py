@@ -3,7 +3,13 @@ from post import views
 import social_media.settings 
 from django.conf.urls.static import static
 
+from rest_framework.routers import DefaultRouter
+from .views import ModelViewSet
+
 app_name = "post"
+
+router = DefaultRouter()
+router.register(r'posts', ModelViewSet)
 
 urlpatterns = [
     path('', views.posts, name="posts"),
